@@ -48,14 +48,14 @@
 
 .text_h2 {font-weight: 100;margin-bottom: 4%; line-height: 4.5rem;}
 
-.span_h2 {font-weight: 300;color: #272727;}
+.span_h2 {font-weight: 300;color: #f9382a;}
 
-.text_b{color: #272727;}
+.text_b{color: #f9382a;}
 
 .in{font-weight: 400 !important; font-style: normal !important;}
 
 .promo i {
-    color: #272727;
+    color: #f9382a;
     font-size: 7rem;
     display: block;
 }
