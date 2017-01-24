@@ -9,6 +9,21 @@
     <!-- CSS  -->
     <link href="min/plugin-min.css" type="text/css" rel="stylesheet">
     <link href="min/custom-min.css" type="text/css" rel="stylesheet" >
+	
+	<!-- SCRIPT -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+        $("#contact-submit").click(function(){
+            $.ajax({
+                type: 'POST',
+                url: 'contact.php',
+                success: function(data) {
+                    alert(data);
+                }
+            });
+   });
+	</script>
 </head>
 <body id="top" class="scrollspy">
 
@@ -342,13 +357,14 @@
                             <label for="icon_prefix2" class="white-text">Message</label>
                         </div>
                         <div class="col offset-s7 s5">
-                            <button class="btn waves-effect waves-light red darken-1" type="submit">Submit
+                            <button id = "contact-submit" class="btn waves-effect waves-light red darken-1" type="submit">Submit
                                 <i class="mdi-content-send right white-text"></i>
                             </button>
                         </div>
                     </div>
                 </form>
             </div>
+			<!--
             <div class="col l3 s12">
                 <h5 class="white-text">joashpereira.com</h5>
                 <ul>
@@ -356,6 +372,7 @@
                     <li><a class="white-text" href="http://www.joashpereira.com/blog">Blog</a></li>
                 </ul>
             </div>
+			-->
             <div class="col l3 s12">
                 <h5 class="white-text">Social</h5>
                 <ul>
