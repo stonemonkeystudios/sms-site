@@ -59,9 +59,9 @@
     font-size: 7rem;
     display: block;
 }
-.card-content a {color: #272727;}
+.card-content a {color: #f9382a;}
 
-.card-content a:hover {color: #272727;}
+.card-content a:hover {color: #e40f00;}
 
 #work, #team, #tweets{background: rgb(247, 247, 247);}
 
