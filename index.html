@@ -556,7 +556,7 @@
                 $.ajax({
                     type: 'POST',
                     url: 'contact.php',
-                    data: $('#contactForm').serializeArray()
+                    data: $('#contactForm').serializeArray(),
                     success: function(data) {
                         alert(data);
                     }
