@@ -413,8 +413,9 @@
                                 <textarea id="icon_prefix2" name="message" class="materialize-textarea white-text"></textarea>
                                 <label for="icon_prefix2" class="white-text">Message</label>
                             </div>
-                            <div class="col offset-s5 s2">
-                              <i id="success-checkmark" class="fa fa-check-square fa-3x" aria-hidden="true" style="color:lime;margin-top:-4px;padding:0px;opacity:0"></i>
+                            <div class="col offset-s5 s1">
+                              <i id="success-checkmark" class="fa fa-check-square fa-3x" aria-hidden="true" style="color:lime;margin-top:-4px;padding:0px;opacity:0;position:absolute"></i>
+							  <i id="contact-waiting" class="fa fa-circle-o-notch fa-3x" aria-hidden="true" style="color:white;margin-top:-4px;padding:0px;opacity:0"></i>
                             </div>
                             <div class="col s5">
                                 <button id="contact-submit" class="btn waves-effect waves-light red darken-1" type="submit">Submit
@@ -471,14 +472,19 @@
     <script>
         $(document).ready(function(){
             $('#contactForm').on('submit', function(e){
+				$('#contact-waiting').animate({opacity: 1}, 250);
                 e.preventDefault();
                 $.ajax({
                     type: 'POST',
                     url: 'contact.php',
                     data: $('#contactForm').serializeArray(),
                     success: function(data) {
+						$('#contact-waiting')
+							.animate({opacity: 0}, 250)
+							.delay(250);
                         $("#success-checkmark")
-                            .animate({opacity: 1}, 250)
+							
+                            .animate({opacity: 1}, 400)
                             .delay(500)
                             .animate({opacity: 0}, 250);
                     }
