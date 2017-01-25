@@ -413,8 +413,11 @@
                                 <textarea id="icon_prefix2" name="message" class="materialize-textarea white-text"></textarea>
                                 <label for="icon_prefix2" class="white-text">Message</label>
                             </div>
-                            <div class="col offset-s7 s5">
-                                <button id = "contact-submit" class="btn waves-effect waves-light red darken-1" type="submit">Submit
+                            <div class="col offset-s5 s2">
+                              <i class="fa fa-check-square fa-3x" aria-hidden="true" style="color:lime;margin-top:-4px;padding:0px;opacity:0"></i>
+                            </div>
+                            <div class="col s5">
+                                <button id="contact-submit" class="btn waves-effect waves-light red darken-1" type="submit">Submit
                                     <i class="mdi-content-send right white-text"></i>
                                 </button>
                             </div>
@@ -475,7 +478,10 @@
                     url: 'contact.php',
                     data: $('#contactForm').serializeArray(),
                     success: function(data) {
-                        alert(data);
+                        $("#success-checkmark")
+                            .animate({opacity: 1}, 250)
+                            .delay(250)
+                            .animate({opacity: 0}, 250);
                     }
                 });
             });
