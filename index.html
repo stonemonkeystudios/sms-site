@@ -9,23 +9,6 @@
     <!-- CSS  -->
     <link href="min/plugin-min.css" type="text/css" rel="stylesheet">
     <link href="min/custom-min.css" type="text/css" rel="stylesheet" >
-	
-	<!-- SCRIPT -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			$('#contactForm').on('submit', function(e){
-				e.preventDefault();
-				$.ajax({
-					type: 'POST',
-					url: 'contact.php',
-					data: $('#contactForm').serializeArray();
-					success: function(data) {
-						alert(data);
-					}
-				});
-		});
-	</script>
 </head>
 <body id="top" class="scrollspy">
 
@@ -70,6 +53,9 @@
 
 <!--Hero-->
 <div class="section no-pad-bot" id="index-banner">
+    <canvas id="bg">
+    </canvas>
+    <!--
     <div class="container">
         <h1 class="text_h center header cd-headline letters type">
             <span>I Love</span> 
@@ -80,6 +66,7 @@
             </span>
         </h1>
     </div>
+    -->
 </div>
 
 <!--Intro and service-->
@@ -465,93 +452,112 @@
 <!--Footer-->
 <footer id="contact" class="page-footer default_color scrollspy">
     <div class="container">  
-        <div class="row">
-            <div class="col l6 s12">
-                <form id="contactForm" class="col s12" action="" method="POST">
-                    <div class="row">
-                        <div class="input-field col s6">
-                            <i class="mdi-action-account-circle prefix white-text"></i>
-                            <input id="icon_prefix" name="name" type="text" class="validate white-text">
-                            <label for="icon_prefix" class="white-text">First Name</label>
+        <h2 class="header text_b white-text"> Contact </h2>
+            <div class="row">
+                <div class="col l6 s12">
+                    <form id="contactForm" class="col s12" action="" method="POST">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <i class="mdi-action-account-circle prefix white-text"></i>
+                                <input id="icon_prefix" name="name" type="text" class="validate white-text">
+                                <label for="icon_prefix" class="white-text">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <i class="mdi-communication-email prefix white-text"></i>
+                                <input id="icon_email" name="email" type="email" class="validate white-text">
+                                <label for="icon_email" class="white-text">Email</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <i class="mdi-editor-mode-edit prefix white-text"></i>
+                                <textarea id="icon_prefix2" name="message" class="materialize-textarea white-text"></textarea>
+                                <label for="icon_prefix2" class="white-text">Message</label>
+                            </div>
+                            <div class="col offset-s7 s5">
+                                <button id = "contact-submit" class="btn waves-effect waves-light red darken-1" type="submit">Submit
+                                    <i class="mdi-content-send right white-text"></i>
+                                </button>
+                            </div>
                         </div>
-                        <div class="input-field col s6">
-                            <i class="mdi-communication-email prefix white-text"></i>
-                            <input id="icon_email" name="email" type="email" class="validate white-text">
-                            <label for="icon_email" class="white-text">Email</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <i class="mdi-editor-mode-edit prefix white-text"></i>
-                            <textarea id="icon_prefix2" name="message" class="materialize-textarea white-text"></textarea>
-                            <label for="icon_prefix2" class="white-text">Message</label>
-                        </div>
-                        <div class="col offset-s7 s5">
-                            <button id = "contact-submit" class="btn waves-effect waves-light red darken-1" type="submit">Submit
-                                <i class="mdi-content-send right white-text"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-			<!--
-            <div class="col l3 s12">
-                <h5 class="white-text">joashpereira.com</h5>
-                <ul>
-                    <li><a class="white-text" href="http://www.joashpereira.com/">Home</a></li>
-                    <li><a class="white-text" href="http://www.joashpereira.com/blog">Blog</a></li>
-                </ul>
-            </div>
-			-->
-            <div class="col l3 s12">
-                <h5 class="white-text">Social</h5>
-                <ul>
-					<!--
-                    <li>
-                        <a class="white-text" href="https://www.behance.net/joashp">
-                            <i class="small fa fa-behance-square white-text"></i> Behance
-                        </a>
-                    </li>
-					-->
-                    <li>
-                        <a class="white-text" href="https://www.facebook.com/stonemonkeystudios">
-                            <i class="small fa fa-facebook-square white-text"></i> Facebook
-                        </a>
-                    </li>
-					<!--
-                    <li>
-                        <a class="white-text" href="https://github.com/joashp">
-                            <i class="small fa fa-github-square white-text"></i> Github
-                        </a>
-                    </li>
-					-->
-                    <li>
-                        <a class="white-text" href="https://www.linkedin.com/ompany/stone-monkey-studios">
-                            <i class="small fa fa-linkedin-square white-text"></i> Linkedin
-                        </a>
-                    </li>
-					
-                </ul>
+                    </form>
+                </div>
+    			<!--
+                <div class="col l3 s12">
+                    <h5 class="white-text">joashpereira.com</h5>
+                    <ul>
+                        <li><a class="white-text" href="http://www.joashpereira.com/">Home</a></li>
+                        <li><a class="white-text" href="http://www.joashpereira.com/blog">Blog</a></li>
+                    </ul>
+                </div>
+    			-->
+                <div class="col l3 s12">
+                    <h5 class="white-text">Social</h5>
+                    <ul>
+    					<!--
+                        <li>
+                            <a class="white-text" href="https://www.behance.net/joashp">
+                                <i class="small fa fa-behance-square white-text"></i> Behance
+                            </a>
+                        </li>
+    					-->
+                        <li>
+                            <a class="white-text" href="https://www.facebook.com/stonemonkeystudios">
+                                <i class="small fa fa-facebook-square white-text"></i> Facebook
+                            </a>
+                        </li>
+    					<!--
+                        <li>
+                            <a class="white-text" href="https://github.com/joashp">
+                                <i class="small fa fa-github-square white-text"></i> Github
+                            </a>
+                        </li>
+    					-->
+                        <li>
+                            <a class="white-text" href="https://www.linkedin.com/ompany/stone-monkey-studios">
+                                <i class="small fa fa-linkedin-square white-text"></i> Linkedin
+                            </a>
+                        </li>
+    					
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-	<div class="section scrollspy" id="tweets">
-		<div class="container"> 
-			<h2 class="header text_b"> Tweets </h2>
-			<a class="twitter-timeline" data-tweet-limit="3" data-chrome="noheader nofooter transparent" href="https://twitter.com/StoneMonkeyMen"></a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-		</div>
-	</div>
-    <div class="footer-copyright default_color">
-		<!--
-        <div class="container">
-            Made by <a class="white-text" href="http://joashpereira.com">Joash Pereira</a>. Thanks to <a class="white-text" href="http://materializecss.com/">materializecss</a>
+    	<div class="section scrollspy" id="tweets">
+    		<div class="container"> 
+    			<h2 class="header text_b"> Tweets </h2>
+    			<a class="twitter-timeline" data-tweet-limit="3" data-chrome="noheader nofooter transparent" href="https://twitter.com/StoneMonkeyMen"></a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    		</div>
+    	</div>
+        <div class="footer-copyright default_color">
+            <div class="container white-text">
+                &copy; Stone Monkey Studios LLC 2014-<script type="text/javascript">document.write(new Date().getFullYear())</script>
+            </div>
+    		<!--
+            <div class="container">
+                Made by <a class="white-text" href="http://joashpereira.com">Joash Pereira</a>. Thanks to <a class="white-text" href="http://materializecss.com/">materializecss</a>
+            </div>
+    		-->
         </div>
-		-->
-    </div>
 	</footer>
 
 
     <!--  Scripts-->
     <script src="min/plugin-min.js"></script>
     <script src="min/custom-min.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/bg.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#contactForm').on('submit', function(e){
+                e.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: 'contact.php',
+                    data: $('#contactForm').serializeArray();
+                    success: function(data) {
+                        alert(data);
+                    }
+                });
+        });
+    </script>
     </body>
 </html>
