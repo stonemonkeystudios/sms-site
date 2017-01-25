@@ -1065,7 +1065,7 @@ $(document).ready(function(){
         function updateParallax(initial) {
           var container_height;
           if (window_width < 601) {
-            container_height = ($this.height() > 0) ? $this.height() : $this.children("img").height();
+            container_height = ($this.height() > 0) ? $this.height() : $this.children("img, canvas").height();
           }
           else {
             container_height = ($this.height() > 0) ? $this.height() : 500;
