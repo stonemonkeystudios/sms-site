@@ -474,18 +474,17 @@
             $('#contactForm').on('submit', function(e){
                 e.preventDefault();
 				$('#contact-waiting')
-					.animate({opacity: 1}, 250)
-					.delay(250);
+					.animate({opacity: 1}, 250);
                 $.ajax({
                     type: 'POST',
                     url: 'contact.php',
                     data: $('#contactForm').serializeArray(),
                     success: function(data) {
 						$('#contact-waiting')
-							.animate({opacity: 0}, 250)
-							.delay(250);
+							.delay(250)
+							.animate({opacity: 0}, 250);
                         $("#success-checkmark")
-							
+							.delay(250)
                             .animate({opacity: 1}, 400)
                             .delay(500)
                             .animate({opacity: 0}, 250);
