@@ -1070,7 +1070,7 @@ $(document).ready(function(){
           else {
             container_height = ($this.height() > 0) ? $this.height() : 500;
           }
-          var $img = $this.children("img").first();
+          var $img = $this.children("img, canvas").first();
           var img_height = $img.height();
           var parallax_dist = img_height - container_height;
           var bottom = $this.offset().top + container_height;
