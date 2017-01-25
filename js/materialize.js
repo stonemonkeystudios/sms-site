@@ -1091,7 +1091,7 @@ $(document).ready(function(){
         }
 
         // Wait for image load
-        $this.children("img").one("load", function() {
+        $this.children("img, canvas").one("load", function() {
           updateParallax(true);
         }).each(function() {
           if(this.complete) $(this).load();
