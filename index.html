@@ -471,7 +471,6 @@
     <script>
         $(document).ready(function(){
             $('#contactForm').on('submit', function(e){
-                debugger;
                 e.preventDefault();
                 $.ajax({
                     type: 'POST',
@@ -480,7 +479,7 @@
                     success: function(data) {
                         $("#success-checkmark")
                             .animate({opacity: 1}, 250)
-                            .delay(250)
+                            .delay(500)
                             .animate({opacity: 0}, 250);
                     }
                 });
