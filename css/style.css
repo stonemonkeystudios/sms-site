@@ -7,6 +7,11 @@
     padding: 0 15px;
 }
 
+#heroimgcontainer {
+    height: 800px;
+    max-height: 800px;
+}
+
 #intro, #work, #team {padding-top: 4rem;}
 
 
