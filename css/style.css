@@ -207,6 +207,14 @@ nav ul a {
 }
 
 @media only screen and (max-width: 480px) {
+    #heroimg {
+        height: 400px;   
+    }
+    
+    #heroimgcontainer {
+        height: 400px;   
+    }
+    
     .text_h {
         padding: 4% 0;
         font-size: 5em;
